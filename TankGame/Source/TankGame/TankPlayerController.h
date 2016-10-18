@@ -23,5 +23,10 @@ public:
 
 	//start the tank moving the so that a shot will hit where the corrhair intersects the world.
 	void AimTowardsCrossHair();
+
+
+
+	//return a OUT parameter, true if hit landed
+	bool GetSightRayHitLocation(FVector& HitLocation) const;
 	
 };
