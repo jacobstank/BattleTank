@@ -13,12 +13,15 @@
 UCLASS()
 class TANKGAME_API ATankAIController : public AAIController
 {
-	GENERATED_BODY();
+	GENERATED_BODY()
 	
-public:
+private:
+
 	ATank* GetControlledAITank() const;
 
 	virtual void BeginPlay() override;
+
+	ATank* GetPlayerTank() const;
 	
 	
 };
