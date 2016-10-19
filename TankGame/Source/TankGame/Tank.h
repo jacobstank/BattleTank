@@ -18,6 +18,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelRefernce(UStaticMeshComponent* BarrelToSet);
 
+	
+
 
 protected:
 
@@ -40,6 +42,7 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-
+	UPROPERTY(EditAnywhere, Category = Firing)
+		float LaunchSpeed = 10000; //TODO find sensable default
 	
 };
