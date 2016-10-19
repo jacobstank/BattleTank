@@ -2,8 +2,9 @@
 
 #pragma once
 
+#include "TankAimingComponent.h"
 #include "GameFramework/Pawn.h"
-#include "Tank.generated.h"
+#include "Tank.generated.h" //put new lines above here
 
 UCLASS()
 class TANKGAME_API ATank : public APawn
@@ -13,6 +14,12 @@ class TANKGAME_API ATank : public APawn
 public:
 
 	void AimAt(FVector HitLocation);
+
+
+protected:
+
+	UTankAimingComponent* TankAimingComponent = nullptr;
+
 
 
 
