@@ -32,15 +32,6 @@ void ATank::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 }
 
-void ATank::AimAt(FVector HitLocation)
-{
-	
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
-
-
-		
-}
-
 void ATank::SetBarrelRefernce(UTankBarrel* BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
@@ -49,4 +40,15 @@ void ATank::SetBarrelRefernce(UTankBarrel* BarrelToSet)
 void ATank::SetTurretRefernce(UTankTurret* TurretToSet)
 {
 	TankAimingComponent->SetTurretReference(TurretToSet);
+}
+
+void ATank::AimAt(FVector HitLocation)
+{
+	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
+}
+
+void ATank::Fire()
+{
+	auto Time = GetWorld()->GetTimeSeconds();
+	UE_LOG(LogTemp, Warning, TEXT("%f: Tank Fires"), Time);
 }
