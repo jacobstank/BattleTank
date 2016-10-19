@@ -11,6 +11,13 @@ class TANKGAME_API ATank : public APawn
 	GENERATED_BODY()
 
 public:
+
+	void AimAt(FVector HitLocation);
+
+
+
+private:
+
 	// Sets default values for this pawn's properties
 	ATank();
 
@@ -23,6 +30,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	
+
 	
 };
