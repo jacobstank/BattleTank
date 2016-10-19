@@ -21,7 +21,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)
-		float MaxDegreesPerSecond = 5; //Max number of degrees the barrel can move.
+		float MaxDegreesPerSecond = 10; //Max number of degrees the barrel can move.
 
 	UPROPERTY(EditAnywhere, Category = Setup)
 		float MaxElevationDegrees = 40; //Highest movement up the barrel can go in degrees
