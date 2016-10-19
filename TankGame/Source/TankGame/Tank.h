@@ -22,6 +22,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelRefernce(UTankBarrel* BarrelToSet);
 
+	UFUNCTION(BlueprintCallable, Category = Setup)
+		void SetTurretRefernce(UTankTurret* TurretToSet);
+
 	
 
 
