@@ -22,5 +22,5 @@ private:
 	virtual void Tick(float DeltaSeconds) override;
 
 	//how close the ai tank cna get to player
-	float AcceptanceRadius = 10000;
+	float AcceptanceRadius = 3000;
 };
