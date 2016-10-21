@@ -19,15 +19,15 @@ class TANKGAME_API ATank : public APawn
 
 public:
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelRefernce(UTankBarrel* BarrelToSet);
+	//UFUNCTION(BlueprintCallable, Category = Setup)
+	//void SetBarrelRefernce(UTankBarrel* BarrelToSet);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
-		void SetTurretRefernce(UTankTurret* TurretToSet);
+	//UFUNCTION(BlueprintCallable, Category = Setup)
+	//void SetTurretRefernce(UTankTurret* TurretToSet);
 	
 	void AimAt(FVector HitLocation);
 
-	UFUNCTION(BlueprintCallable, Category = Fire)
+	UFUNCTION(BlueprintCallable, Category = "Fire")
 		void Fire();
 
 	
@@ -54,17 +54,17 @@ private:
 	
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+	//virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
+	UPROPERTY(EditAnywhere, Category = "Firing")
 		float LaunchSpeed = 4000; //TODO find sensable default
 
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditAnywhere, Category = "Setup")
 		TSubclassOf<AProjectile> ProjectileBlueprint;
 	
 	UTankBarrel* Barrel = nullptr; // local barrel reference for spawning projectiles.
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)	
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")	
 	float ReloadTimeInSeconds = 3;
 
 	double LastFireTime = 0;
