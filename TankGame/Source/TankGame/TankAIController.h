@@ -20,5 +20,7 @@ class TANKGAME_API ATankAIController : public AAIController
 private:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
-	
+
+	//how close the ai tank cna get to player
+	float AcceptanceRadius = 10000;
 };
