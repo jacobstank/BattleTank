@@ -22,6 +22,16 @@ public:
 		//UPROPERTY(BlueprintCallable, Category = Input)
 	UFUNCTION(BlueprintCallable, Category = Setup)
 		void IntendedMoveForward(float Throw);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+		void IntendedMoveBackwards(float Throw);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+		void IntendedTurnRight(float Throw);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+		void IntendedTurnLeft(float Throw);
+	
 	
 private:
 	UTankTrack* LeftTrack = nullptr;

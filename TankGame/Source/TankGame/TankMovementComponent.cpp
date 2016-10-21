@@ -5,10 +5,18 @@
 #include "TankMovementComponent.h"
 
 
+void UTankMovementComponent::Initalize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)
+{
+	if (!LeftTrackToSet || !RightTrackToSet) { return; }
+	LeftTrack = LeftTrackToSet;
+	RightTrack = RightTrackToSet;
+
+}
+
 void UTankMovementComponent::IntendedMoveForward(float Throw)
 {
 	//auto Name = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
+	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
 
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
@@ -16,11 +24,35 @@ void UTankMovementComponent::IntendedMoveForward(float Throw)
 	//TODO change double throttle with keys.
 }
 
-
-void UTankMovementComponent::Initalize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)
+void UTankMovementComponent::IntendedMoveBackwards(float Throw)
 {
-	if (!LeftTrackToSet || !RightTrackToSet) { return; }
-	LeftTrack = LeftTrackToSet;
-	RightTrack = RightTrackToSet;
+	//auto Name = GetName();
+	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
 
+	LeftTrack->SetThrottle(-Throw);
+	RightTrack->SetThrottle(-Throw);
+
+	//TODO change double throttle with keys.
+}
+
+void UTankMovementComponent::IntendedTurnRight(float Throw)
+{
+	//auto Name = GetName();
+	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
+
+	LeftTrack->SetThrottle(-Throw);
+	RightTrack->SetThrottle(Throw);
+
+	//TODO change double throttle with keys.
+}
+
+void UTankMovementComponent::IntendedTurnLeft(float Throw)
+{
+	//auto Name = GetName();
+	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
+
+	LeftTrack->SetThrottle(Throw);
+	RightTrack->SetThrottle(-Throw);
+
+	//TODO change double throttle with keys.
 }
