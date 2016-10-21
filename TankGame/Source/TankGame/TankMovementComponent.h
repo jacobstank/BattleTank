@@ -20,19 +20,21 @@ public:
 	void Initalize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
 
 		//UPROPERTY(BlueprintCallable, Category = Input)
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 		void IntendedMoveForward(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 		void IntendedMoveBackwards(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 		void IntendedTurnRight(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 		void IntendedTurnLeft(float Throw);
-	
+
+private:
 	//TODO check best protection
+	//called from the pathfinding logic by the AI Controllers
 	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
 
 	
