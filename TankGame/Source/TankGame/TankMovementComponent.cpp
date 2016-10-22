@@ -18,7 +18,7 @@ void UTankMovementComponent::IntendedMoveForward(float Throw)
 	//auto Name = GetName();
 	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
 
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack || RightTrack)) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
 
@@ -30,7 +30,7 @@ void UTankMovementComponent::IntendedMoveBackwards(float Throw)
 	//auto Name = GetName();
 	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
 
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack || RightTrack)) { return; }
 	LeftTrack->SetThrottle(-Throw);
 	RightTrack->SetThrottle(-Throw);
 
@@ -42,7 +42,7 @@ void UTankMovementComponent::IntendedTurnRight(float Throw)
 	//auto Name = GetName();
 	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
 
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack || RightTrack)) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
 
@@ -54,7 +54,7 @@ void UTankMovementComponent::IntendedTurnLeft(float Throw)
 	//auto Name = GetName();
 	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
 
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack || RightTrack)) { return; }
 	LeftTrack->SetThrottle(-Throw);
 	RightTrack->SetThrottle(Throw);
 
