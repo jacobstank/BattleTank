@@ -62,20 +62,12 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("Look Direction: %s"), *LookDirection.ToString());
 		//Line-trace along that look direction, and see what we hit (up to a max range)
-
-		GetLookVectorHitLocation(LookDirection, HitLocation);
-
+		return GetLookVectorHitLocation(LookDirection, HitLocation);
 	}
 
-
-
-	
 	//UE_LOG(LogTemp, Warning, TEXT("ScreenLocation: %s"), *ScreenLocation.ToString()); //logs the crosshair location in pixels
 	//Line-trace along that look direction, and see what we hit (up to a max range)
-
-
-
-	return true;
+	return false;
 }
 
 
