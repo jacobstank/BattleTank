@@ -3,7 +3,6 @@
 #include "TankGame.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
-#include "TankAimingComponent.h"
 #include "Tank.h"
 
 
@@ -25,10 +24,9 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 
-	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
+
 	
 }
-
 
 
 // Called to bind functionality to input
@@ -49,12 +47,6 @@ void ATank::SetTurretRefernce(UTankTurret* TurretToSet)
 	TankAimingComponent->SetTurretReference(TurretToSet);
 }*/
 
-void ATank::AimAt(FVector HitLocation)
-{
-	if (!ensure(TankAimingComponent)) { return; }
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
-
-}
 
 void ATank::Fire()
 {

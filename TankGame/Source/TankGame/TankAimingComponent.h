@@ -31,7 +31,7 @@ class TANKGAME_API UTankAimingComponent : public UActorComponent
 public:	
 
 
-	void AimAt(FVector HitLocation, float LaunchSpeed);
+	void AimAt(FVector HitLocation);
 
 	//void SetBarrelReference(UTankBarrel* BarrelToSet);
 	//void SetTurretReference(UTankTurret* TurretToSet);
@@ -59,6 +59,9 @@ private:
 	UTankTurret* Turret = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
+
+	UPROPERTY(EditAnywhere, Category = "Firing")
+		float LaunchSpeed = 4000; //TODO find sensable default
 
 	
 };
