@@ -10,7 +10,7 @@
 /**
  * 
  */
-class ATank;
+
 
 UCLASS()
 class TANKGAME_API ATankAIController : public AAIController
