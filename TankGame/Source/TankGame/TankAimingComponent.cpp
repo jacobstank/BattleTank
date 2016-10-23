@@ -22,14 +22,18 @@ UTankAimingComponent::UTankAimingComponent()
 
 void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
-	if (bool isRloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds)
+	if (bool isRloaded = (FPlatformTime::Seconds() - LastFireTime) < ReloadTimeInSeconds)
 	{
 		FiringState = EFiringStatus::Reloading;
-	}
-
-
-	//TODO handle aiming and locked states.
-
+	}else
+		if (IsBarrelMoving())
+		{
+			FiringState = EFiringStatus::Aiming;
+		}
+		else
+		{
+			FiringState = EFiringStatus::Locked;
+		}
 }
 
 void UTankAimingComponent::BeginPlay()
@@ -79,13 +83,10 @@ void UTankAimingComponent::AimAt(FVector HitLocation)
 			)
 		)
 	{
-		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
+		FVector AimDirection = OutLaunchVelocity.GetSafeNormal();
 		//auto TankName = GetOwner()->GetName();
 		//UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s"), *TankName, *AimDirection.ToString()); //shows the aim of the tanks
-
 		MoveBarrelTowards(AimDirection);
-		
-		
 	}
 	
 	//do nothing
@@ -98,9 +99,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	//workout difference between current barrel rotation and AimDirection
 	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
 	auto AimAsRotator = AimDirection.Rotation();
-	auto DeltaRotator = AimAsRotator - BarrelRotator;
-
-	
+	auto DeltaRotator = AimAsRotator - BarrelRotator;	
 	
 	Barrel->Elevate(DeltaRotator.Pitch); 
 	Turret->Rotate(DeltaRotator.Yaw);
@@ -109,9 +108,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
 void UTankAimingComponent::Fire()
 {
-
-	
-
 
 	if (FiringState != EFiringStatus::Reloading)
 	{
@@ -126,4 +122,11 @@ void UTankAimingComponent::Fire()
 		Projectile->LaunchProjectile(LaunchSpeed);
 		
 	}
+}
+
+bool UTankAimingComponent::IsBarrelMoving()
+{
+	if (!ensure(Barrel)) { return false;  }
+	auto BarrelForward = Barrel->GetForwardVector();
+	return !BarrelForward.Equals(AimDirection, 0.01);
 }

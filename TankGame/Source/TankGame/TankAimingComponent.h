@@ -78,5 +78,9 @@ private:
 
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 	virtual void BeginPlay() override;
+
+	bool IsBarrelMoving();
+
+	FVector AimDirection;
 	
 };
