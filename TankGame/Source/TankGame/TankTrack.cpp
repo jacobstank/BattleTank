@@ -9,6 +9,12 @@ UTankTrack::UTankTrack()
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
+void UTankTrack::BeginPlay()
+{
+	OnComponentHit.AddDynamic(this, &UTankTrack::OnHit);
+
+}
+
 void UTankTrack::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
 	//clac slippage speed
@@ -33,5 +39,10 @@ void UTankTrack::SetThrottle(float throttle)
 	auto TankRoot = Cast<UPrimitiveComponent>(GetOwner()->GetRootComponent());
 	TankRoot->AddForceAtLocation(ForceApplied, ForceLocation);
 
+
+}
+
+void UTankTrack::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
+{
 
 }
