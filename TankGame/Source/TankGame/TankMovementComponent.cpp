@@ -43,13 +43,13 @@ void UTankMovementComponent::IntendedTurnRight(float Throw)
 	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
 
 	if (!ensure(LeftTrack || RightTrack)) { return; }
-	LeftTrack->SetThrottle(Throw);
-	RightTrack->SetThrottle(-Throw);
+	LeftTrack->SetThrottle(-Throw);
+	RightTrack->SetThrottle(Throw);
 
 	//TODO change double throttle with keys.
 }
 
-void UTankMovementComponent::IntendedTurnLeft(float Throw)
+/*void UTankMovementComponent::IntendedTurnLeft(float Throw)
 {
 	//auto Name = GetName();
 	//UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
@@ -59,7 +59,7 @@ void UTankMovementComponent::IntendedTurnLeft(float Throw)
 	RightTrack->SetThrottle(Throw);
 
 	//TODO change double throttle with keys.
-}
+}*/
 
 void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed)
 {

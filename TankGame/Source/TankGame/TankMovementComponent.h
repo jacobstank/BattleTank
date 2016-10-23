@@ -29,8 +29,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 		void IntendedTurnRight(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-		void IntendedTurnLeft(float Throw);
+	/*UFUNCTION(BlueprintCallable, Category = "Setup")
+		void IntendedTurnLeft(float Throw); */
 
 private:
 	//TODO check best protection
