@@ -50,7 +50,7 @@ public:
 protected:
 
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-		EFiringStatus FiringState = EFiringStatus::Locked;
+		EFiringStatus FiringState = EFiringStatus::Reloading;
 
 
 private:
@@ -76,5 +76,7 @@ private:
 
 	double LastFireTime = 0;
 
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+	virtual void BeginPlay() override;
 	
 };
